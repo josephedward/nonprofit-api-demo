@@ -13,7 +13,7 @@ import { AttributeType, Table } from "aws-cdk-lib/aws-dynamodb";
 import events = require("aws-cdk-lib/aws-events");
 import targets = require("aws-cdk-lib/aws-events-targets");
 
-export class ApiLambdaDynamoStack extends Stack {
+export class TemelioDemoStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 

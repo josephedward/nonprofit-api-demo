@@ -5,7 +5,7 @@
 
 // const app = new cdk.App();
 // // WHEN
-// const stack = new ApiLambdaDynamo.ApiLambdaDynamoStack(app, "MyTestStack");
+// const stack = new ApiLambdaDynamo.TemelioDemoStack(app, "MyTestStack");
 // // THEN
 // const template = Template.fromStack(stack);
 

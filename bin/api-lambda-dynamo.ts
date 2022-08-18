@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
-import { ApiLambdaDynamoStack } from "../lib/temelio-demo-stack";
+import { TemelioDemoStack } from "../lib/temelio-demo-stack";
 
 const app = new cdk.App();
-new ApiLambdaDynamoStack(app, "ApiLambdaDynamoStack", {
+new TemelioDemoStack(app, "TemelioDemoStack", {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
