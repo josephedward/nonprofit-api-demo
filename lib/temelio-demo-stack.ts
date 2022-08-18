@@ -61,7 +61,7 @@ export class TemelioDemoStack extends Stack {
       {
         functionName: "getNonprofitsFunction",
         code: new lambda.InlineCode(
-          fs.readFileSync("./lambdas/get-nonprofit.py", { encoding: "utf-8" })
+          fs.readFileSync("./lambdas/get-all-nonprofit.py", { encoding: "utf-8" })
         ),
         handler: "index.main",
         timeout: Duration.seconds(300),
@@ -99,7 +99,7 @@ export class TemelioDemoStack extends Stack {
       {
         functionName: "getFoundationsFunction",
         code: new lambda.InlineCode(
-          fs.readFileSync("./lambdas/get-foundation.py", { encoding: "utf-8" })
+          fs.readFileSync("./lambdas/get-all-foundation.py", { encoding: "utf-8" })
         ),
         handler: "index.main",
         timeout: Duration.seconds(300),
