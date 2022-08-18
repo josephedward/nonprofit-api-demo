@@ -17,7 +17,7 @@ export class ApiLambdaDynamoStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const nonprofitTable = new Table(this, "NonprofitTable", {
+    const NonprofitTable = new Table(this, "NonprofitTable", {
       partitionKey: {
         name: "nonprofit_email",
         type: AttributeType.STRING,
@@ -132,8 +132,8 @@ export class ApiLambdaDynamoStack extends Stack {
       }
     );
 
-    nonprofitTable.grantReadWriteData(getNonprofitsLambda);
-    nonprofitTable.grantReadWriteData(createNonprofitLambda);
+    NonprofitTable.grantReadWriteData(getNonprofitsLambda);
+    NonprofitTable.grantReadWriteData(createNonprofitLambda);
     FoundationTable.grantReadWriteData(getFoundationsLambda);
     FoundationTable.grantReadWriteData(createFoundationLambda);
 
@@ -156,25 +156,25 @@ export class ApiLambdaDynamoStack extends Stack {
       restApiName: "TemelioDemoApi",
     });
 
-    const NonprofitTable = api.root.addResource("NonprofitTable");
-    NonprofitTable.addMethod("POST", createNonprofitIntegration);
-    addCorsOptions(NonprofitTable);
+    const nonprofitData = api.root.addResource("NonprofitTable");
+    nonprofitData.addMethod("POST", createNonprofitIntegration);
+    addCorsOptions(nonprofitData);
 
-    const NonprofitList = NonprofitTable.addResource("all");
-    NonprofitList.addMethod("GET", getNonprofitsIntegration);
-    addCorsOptions(NonprofitList);
+    const allNonprofits = nonprofitData.addResource("all");
+    allNonprofits.addMethod("GET", getNonprofitsIntegration);
+    addCorsOptions(allNonprofits);
 
-    const FoundationTable = api.root.addResource("FoundationTable");
-    FoundationTable.addMethod("POST", createFoundationIntegration);
-    addCorsOptions(FoundationTable);
+    const foundationData = api.root.addResource("FoundationTable");
+    foundationData.addMethod("POST", createFoundationIntegration);
+    addCorsOptions(foundationData);
 
-    const FoundationList = FoundationTable.addResource("all");
-    FoundationList.addMethod("GET", getFoundationsIntegration);
-    addCorsOptions(FoundationList);
+    const allFoundations = foundationData.addResource("all");
+    allFoundations.addMethod("GET", getFoundationsIntegration);
+    addCorsOptions(allFoundations);
 
-    const EmailNonprofitList = NonprofitTable.addResource("email");
-    EmailNonprofitList.addMethod("POST", emailNonprofitListIntegration);
-    addCorsOptions(EmailNonprofitList);
+    const emailNonprofitList = api.root.addResource("email");
+    emailNonprofitList.addMethod("POST", emailNonprofitListIntegration);
+    addCorsOptions(emailNonprofitList);
   }
 }
 
