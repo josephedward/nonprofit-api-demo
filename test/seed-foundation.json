@@ -2,7 +2,7 @@
     "name" : "Test Name",
 "description" : "Test Name is a Foundation",
  "website" : "test-foundation.com/",
-   "email" : "test@test.com",
+   "email" : "test-foundation@test.com",
    "phone" : "1234567890",
  "address" : "No.1, Galle Road, Colombo"    
 }
