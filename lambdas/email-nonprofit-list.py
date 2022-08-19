@@ -46,21 +46,21 @@ def main(event, context):
         'Destinations': recipients
     }
 
-    # set up the client
-    client = boto3.client('ses')
+    # # set up the client
+    # client = boto3.client('ses')
 
-    # send the email
-    response = client.send_email(
-        Source=sender,
-        Destination={
-            'ToAddresses': recipients
-        },
-        Message=email
-    )
+    # # send the email
+    # response = client.send_email(
+    #     Source=sender,
+    #     Destination={
+    #         'ToAddresses': recipients
+    #     },
+    #     Message=email
+    # )
 
 
 
     return {
         "statusCode": 200,
-        'body': "Successfully created item in table"
+        'body': json.dumps(email)
     }

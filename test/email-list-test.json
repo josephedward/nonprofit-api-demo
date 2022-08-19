@@ -1,0 +1,6 @@
+{
+    "sender": "test@test.com",
+    "recipients":[ "josephedwardwork@gmail.com", "aptnative@gmail.com"],
+    "nonprofit_name" : "Test Nonprofit",
+    "nonprofit_address": "123 Test St"
+}
